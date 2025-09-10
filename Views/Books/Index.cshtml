@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LibraryManagement.Models.Libro>
+@{
+    ViewData["Title"] = "Colección";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Colección</h2>
+    <form method="get" class="d-flex" asp-controller="Books" asp-action="Index">
+        <input name="search" class="form-control me-2" placeholder="Buscar por título o autor" value="@Context.Request.Query["search"]" />
+        <button class="btn btn-outline-secondary">Buscar</button>
+    </form>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var libro in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="@libro.Imagen"
+                     class="card-img-top"
+                     alt="@libro.Titulo"
+                     style="max-height:240px;object-fit:cover;" />
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@libro.Titulo</h5>
+                    <p class="card-text text-muted">@libro.Autor</p>
+                    <div class="mt-auto">
+                        @if (libro.Estado == "Disponible")
+                        {
+                            <a asp-controller="Prestamos" asp-action="Create" asp-route-libroId="@libro.Id" class="btn btn-primary me-2">Prestar</a>
+                            <a asp-controller="Reservas" asp-action="Create" asp-route-libroId="@libro.Id" class="btn btn-outline-primary">Reservar</a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary" disabled>@libro.Estado</button>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+

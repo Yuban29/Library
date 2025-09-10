@@ -1,0 +1,21 @@
+﻿@model LibraryManagement.Models.Reserva
+@{
+    ViewData["Title"] = "Crear reserva";
+}
+
+<h2>Crear reserva</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Libro (Id)</label>
+        <input asp-for="LibroId" class="form-control" readonly="readonly" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Fecha de reserva</label>
+        <input asp-for="FechaReserva" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

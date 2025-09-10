@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LibraryManagement.Models.Prestamo>
+@{
+    ViewData["Title"] = "Préstamos";
+}
+
+<h2>Historial de préstamos</h2>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Fecha de préstamo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Libro?.Titulo</td>
+                <td>@p.FechaPrestamo.ToString("yyyy-MM-dd")</td>
+                <td>@p.Estado</td>
+                <td>
+                    @if (p.Estado == "Activo")
+                    {
+                        <!-- Form POST a Prestamos/Return (ver ReturnConfirmed en el controller) -->
+                        <form asp-action="Return" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@p.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">Devolver</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Ya devuelto</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a class="btn btn-primary" asp-controller="Prestamos" asp-action="Create">Registrar nuevo préstamo</a>
+</p>

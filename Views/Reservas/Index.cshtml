@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LibraryManagement.Models.Reserva>
+@{
+    ViewData["Title"] = "Reservas";
+}
+
+<h2>Lista de reservas</h2>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Fecha de reserva</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Libro?.Titulo</td>
+                <td>@r.FechaReserva.ToString("yyyy-MM-dd")</td>
+                <td>@r.Estado</td>
+                <td>
+                    @if (r.Estado == "Activa")
+                    {
+                        <form asp-action="Cancel" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@r.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Cancelar</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">No activa</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a class="btn btn-primary" asp-controller="Reservas" asp-action="Create">Crear nueva reserva</a>
+</p>
