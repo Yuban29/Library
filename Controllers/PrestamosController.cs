@@ -44,6 +44,26 @@ namespace LibraryManagement.Controllers
             return View(prestamo);
         }
 
+        public IActionResult Create(int libroId)
+        {
+            var libro = _context.Libros.FirstOrDefault(l => l.Id == libroId);
+            if (libro == null)
+            {
+                return NotFound();
+            }
+
+            var prestamo = new Prestamo
+            {
+                LibroId = libro.Id,
+                Libro = libro,
+                FechaPrestamo = DateTime.Now,
+                Estado = "Activo"
+            };
+
+            return View(prestamo);
+        }
+
+
         // POST: Prestamos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -1,21 +1,30 @@
 ﻿@model LibraryManagement.Models.Prestamo
+
 @{
-    ViewData["Title"] = "Nuevo préstamo";
+    ViewData["Title"] = "Registrar Préstamo";
 }
 
 <h2>Registrar préstamo</h2>
 
+<div class="card shadow-sm mb-4" style="max-width: 400px;">
+    <img src="@Model.Libro?.Imagen"
+         class="card-img-top"
+         alt="@Model.Libro?.Titulo"
+         style="max-height:240px;object-fit:cover;" />
+    <div class="card-body">
+        <h5 class="card-title">@Model.Libro?.Titulo</h5>
+        <p class="card-text text-muted">@Model.Libro?.Autor</p>
+    </div>
+</div>
+
 <form asp-action="Create" method="post">
-    <div class="mb-3">
-        <label class="form-label">Libro (Id)</label>
-        <input asp-for="LibroId" class="form-control" readonly="readonly" />
+    <input type="hidden" asp-for="LibroId" />
+    <div class="form-group">
+        <label asp-for="FechaPrestamo" class="control-label"></label>
+        <input asp-for="FechaPrestamo" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
     </div>
-
-    <div class="mb-3">
-        <label class="form-label">Fecha de préstamo</label>
-        <input asp-for="FechaPrestamo" class="form-control" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <br />
+    <button type="submit" class="btn btn-primary">Confirmar préstamo</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>
+

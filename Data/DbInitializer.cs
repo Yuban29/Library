@@ -17,9 +17,9 @@ namespace LibraryManagement.Data
 
             var libros = new Libro[]
             {
-new Libro{ Id = 1, Titulo = "Cien años de soledad", Autor = "Gabriel García Márquez", Imagen = "/images/book1.jpg", Estado = "Disponible" },
-new Libro{ Id = 2, Titulo = "Don Quijote de la Mancha", Autor = "Miguel de Cervantes", Imagen = "/images/libros/quijote.jpg", Estado = "Disponible" },
-new Libro{ Id = 3, Titulo = "El Principito", Autor = "Antoine de Saint-Exupéry", Imagen = "/images/book3.jpg", Estado = "Disponible" }
+new Libro{ Id = 1, Titulo = "Cien años de soledad", Autor = "Gabriel García Márquez", Imagen = "/images/Libros/cien_anos.jpg", Estado = "Disponible" },
+new Libro{ Id = 2, Titulo = "Don Quijote de la Mancha", Autor = "Miguel de Cervantes", Imagen = "/Images/Libros/quijote.jpg", Estado = "Disponible" },
+new Libro{ Id = 3, Titulo = "El Principito", Autor = "Antoine de Saint-Exupéry", Imagen = "/images/Libros/principito.jpg", Estado = "Disponible" }
             };
 
 
