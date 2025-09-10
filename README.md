@@ -40,8 +40,8 @@ Permite gestionar libros, autores, préstamos y reservas, ofreciendo una interfa
 <div align="center">
 
 ### 🖥️ Vista de Escritorio
-<img width="1872" height="672" alt="image" src="https://github.com/user-attachments/assets/2d35f66c-b553-4da4-90e1-a80eb2ee9a69" />
-<img width="1486" height="513" alt="image" src="https://github.com/user-attachments/assets/98e97239-7c0a-4281-b0a7-cf5c1b30a81a" />
+<img width="1875" height="667" alt="image" src="https://github.com/user-attachments/assets/b2f858c4-819e-4aa4-b008-8b9aad2c8b27" />
+<img width="1380" height="673" alt="image" src="https://github.com/user-attachments/assets/9472934f-0977-4e6d-a4d3-d94212ffeb72" />
 <img width="1402" height="450" alt="image" src="https://github.com/user-attachments/assets/b2de93ce-97f9-4f63-be85-7650e56dae9a" />
 <img width="1408" height="457" alt="image" src="https://github.com/user-attachments/assets/7a2c164a-f176-4786-8873-eb5052bac10d" />
 <img width="1392" height="428" alt="image" src="https://github.com/user-attachments/assets/ff4e2f95-d325-4b3b-a1a1-408ebbedf44a" />
